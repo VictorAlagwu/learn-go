@@ -8,6 +8,7 @@ import (
 // Shape : interface
 type Shape interface {
 	area() float64
+	perimeter() float64
 }
 
 // MultiShape : Shape
@@ -39,14 +40,23 @@ func distance(x1, y1, x2 ,y2 float64) float64 {
 	return math.Sqrt(a*a + b*b)
 }
 
-func (r *Rectangle) area() float64{
+func (r *Rectangle) area() float64 {
 	l := distance(r.x1, r.y1, r.x1, r.y2)
 	w := distance(r.x1, r.y1, r.x2, r.y1)
 	return l * w
 }
 
-func (c *Circle) area() float64{
+func (r *Rectangle) perimeter() float64 {
+	l := distance(r.x1, r.y1, r.x1, r.y2)
+	w := distance(r.x1, r.y1, r.x2, r.y1)
+	return 2 * (l+w)
+}
+
+func (c *Circle) area() float64 {
 	return math.Pi * c.r*c.r
+}
+func (c *Circle) perimeter() float64 {
+	return 2 * math.Pi * c.r
 }
 
 //Talk : function
@@ -70,4 +80,6 @@ func main() {
 
 	m := MultiShape{[]Shape{&c, &r}}
 	fmt.Println(m.totalArea())
+	fmt.Println(c.perimeter())
+	fmt.Println(r.perimeter())
 }
