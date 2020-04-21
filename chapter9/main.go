@@ -4,6 +4,17 @@ import (
 	"fmt"
 	"math"
 )
+
+// Shape : interface
+type Shape interface {
+	area() float64
+}
+
+// MultiShape : Shape
+type MultiShape struct {
+	shapes []Shape
+}
+
 //Circle : Circle Datatype
 type Circle struct {
 	x, y ,r float64
@@ -38,16 +49,25 @@ func (c *Circle) area() float64{
 	return math.Pi * c.r*c.r
 }
 
+//Talk : function
 func (p *Person) Talk() {
 	fmt.Println("Hi, my name is", p.Name)
 }
 
+func (m *MultiShape) totalArea() float64 {
+	var area float64
+	for _, s := range m.shapes {
+		area += s.area()
+	}
+	return area
+}
 
 func main() {
 	r := Rectangle{0, 0, 10, 10}
 	c := Circle{0, 0, 5}
 	a := new(Andriod)
 	a.Talk()
-	fmt.Println(r.area())
-	fmt.Println(c.area())
+
+	m := MultiShape{[]Shape{&c, &r}}
+	fmt.Println(m.totalArea())
 }
