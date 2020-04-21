@@ -5,15 +5,16 @@ import (
 )
 
 func main()  {
-	half(3)
+	x := uint(2)
+	fmt.Println(half(x))
 }
 
 // Reason I used string is because I will learn interfaces in another chapter
-func half(x uint) (int, error)  {
+func half(x uint) (uint, bool)  {
 	halfValue := x/2
-	if halfValue % 2 == 0{
-		return fmt.Println(1, true)
+	if x % 2 == 0{
+		return halfValue, true
 	} else {
-		return fmt.Println(0, false)
+		return halfValue, false
 	}
 }
