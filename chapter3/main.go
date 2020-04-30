@@ -51,13 +51,13 @@ func main() {
 	fmt.Scanf("%f", &value)
 	if selected == 1 {
 		result := fahrenriteToCelsius(value)
-		fmt.Println(value, " Fahrenrite in Celsius is", result)
+		fmt.Printf("%f fahrenrite is %f celsius.\n",value,result)
 	} else if selected == 2 {
 		result := celsiusToFahrenrite(value)
-		fmt.Println(value, " Celsius in Fahrenrite is", result)
+		fmt.Printf("%f celsius is %f fahrenrite.\n",value,result)
 	} else if selected == 3 {
 		result := feetToMeter(value) 
-		fmt.Println(value, " Feet in Meter is", result)
+		fmt.Printf("%f feet is %f meters.\n",value,result)
 	} 
 
 }
