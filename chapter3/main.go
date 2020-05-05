@@ -30,7 +30,7 @@ func feetToMeter (x float64) float64 {
 
 func feetToYard(x float64) float64 {
 	var o float64 = math.Round(x * feetInYards)
-	return o
+	return o 
 }
 
 func arrayChecker(a int, arr [4]int) bool{
@@ -74,6 +74,7 @@ func main() {
 	} else if s == 4 {
 		r := feetToYard(v) 
 		fmt.Printf("%f feet is %f yards.\n",v,r)
+	
 	}
 
 }
