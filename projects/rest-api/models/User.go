@@ -150,3 +150,27 @@ func (u *User) Delete(db *gorm.DB, uid uint32) (int64, error) {
 
 	return db.RowsAffected, nil
 }
+
+//FindAll :
+func (u *User) FindAll(db *gorm.DB)(*[]User, error) {
+	var err error
+	users := []User{}
+
+	err = db.Debug().Model(&User{}).Limit(100).Find(&users).Error
+	if err != nil {
+		return &[]User{}, err //Pointer
+	}
+
+	return &users, nil
+}
+
+//FindUserByID :
+func (u *User) FindUserByID(db *gorm.DB, uid uint32)(*User, error) {
+	var err error
+
+	err = db.Debug().Model(&User{}).Where("id = ?", uid).Take(&u).Error
+	if err != nil {
+		return &User{}, err
+	}
+	return u, nil
+}
