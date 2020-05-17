@@ -1,7 +1,11 @@
 package middlewares
 
 import (
+	"errors"
 	"net/http"
+
+	"github.com/victoralagwu/learngo/projects/rest-api/api/auth"
+	"github.com/victoralagwu/learngo/projects/rest-api/api/responses"
 )
 
 //SetMiddlewareJSON :

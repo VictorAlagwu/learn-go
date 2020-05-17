@@ -11,7 +11,6 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql" //mysql datatype driver
 
 	"github.com/victoralagwu/learngo/projects/rest-api/models"
-
 )
 
 //Server :

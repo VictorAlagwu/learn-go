@@ -1,11 +1,12 @@
 package models
 
 import (
-	"github.com/jinzhu/gorm"
 	"errors"
-	"strings"
 	"html"
+	"strings"
 	"time"
+
+	"github.com/jinzhu/gorm"
 )
 
 // Post :
@@ -19,6 +20,7 @@ type Post struct {
 	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
 }
 
+//Prepare :
 func (p *Post) Prepare() {
 	p.ID = 0
 	p.Title = html.EscapeString(strings.TrimSpace(p.Title))

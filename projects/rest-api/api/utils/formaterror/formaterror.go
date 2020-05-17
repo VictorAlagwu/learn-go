@@ -1,5 +1,10 @@
 package formaterror
 
+import (
+	"errors"
+	"strings"
+)
+
 //FormatError :
 func FormatError(err string) error {
 	if strings.Contains(err, "name") {
