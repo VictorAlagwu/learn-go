@@ -1,6 +1,6 @@
 package controllers
 
-import "github.com/victoralagwu/learngo/projects/rest-api/api/middlewares"
+import "github.com/victoralagwu/learn-go/projects/rest-api/api/middlewares"
 
 func (s *Server) initializeRoutes() {
 	//Home 

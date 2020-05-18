@@ -11,13 +11,13 @@ import (
 
 // Post :
 type Post struct {
-	ID uint64 			`gorm:"primary_key;auto_increment" json:"id"`
-	Title string		`gorm:"size:255;not null;unique" json:"title"`
-	Content string		`gorm:"size:255;not null;" json:"content"`
-	Author User 	    `json:"author"`
-	AuthorID uint32  	`gorm:"not null" json:"author_id"`
-	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
-	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
+	ID        uint64    `gorm:"primary_key;auto_increment" json:"id,omitempty"`
+	Title     string    `gorm:"size:255;not null;unique" json:"title,omitempty"`
+	Content   string    `gorm:"size:255;not null;" json:"content,omitempty"`
+	Author    User      `json:"author,omitempty"`
+	AuthorID  uint32    `gorm:"not null" json:"author_id,omitempty"`
+	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at,omitempty"`
+	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at,omitempty"`
 }
 
 //Prepare :
@@ -29,7 +29,7 @@ func (p *Post) Prepare() {
 	p.CreatedAt = time.Now()
 	p.UpdatedAt = time.Now()
 }
-
+//Validate : 
 func (p *Post) Validate() error {
 	if p.Title == "" {
 		return errors.New("Required Title")

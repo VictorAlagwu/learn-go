@@ -8,9 +8,9 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/victoralagwu/learngo/projects/rest-api/api/responses"
-	"github.com/victoralagwu/learngo/projects/rest-api/api/utils/formaterror"
-	"github.com/victoralagwu/learngo/projects/rest-api/models"
+	"github.com/victoralagwu/learn-go/projects/rest-api/api/responses"
+	"github.com/victoralagwu/learn-go/projects/rest-api/api/utils/formaterror"
+	"github.com/victoralagwu/learn-go/projects/rest-api/models"
 )
 
 func (server *Server) CreatePost(w http.ResponseWriter, r *http.Request) {

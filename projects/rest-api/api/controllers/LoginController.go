@@ -5,10 +5,10 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/victoralagwu/learngo/projects/rest-api/api/auth"
-	"github.com/victoralagwu/learngo/projects/rest-api/models"
-	"github.com/victoralagwu/learngo/projects/rest-api/responses"
-	"github.com/victoralagwu/learngo/projects/rest-api/utils/formaterror"
+	"github.com/victoralagwu/learn-go/projects/rest-api/api/auth"
+	"github.com/victoralagwu/learn-go/projects/rest-api/models"
+	"github.com/victoralagwu/learn-go/projects/rest-api/responses"
+	"github.com/victoralagwu/learn-go/projects/rest-api/utils/formaterror"
 	"golang.org/x/crypto/bcrypt"
 )
 

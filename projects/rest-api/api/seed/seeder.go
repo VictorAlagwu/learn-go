@@ -3,7 +3,7 @@ package seed
 import (
 	"log"
 
-	"github.com/victoralagwu/learngo/projects/rest-api/models"
+	"github.com/victoralagwu/learn-go/projects/rest-api/models"
 )
 
 var users = []models.User{
