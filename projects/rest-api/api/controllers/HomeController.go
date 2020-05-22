@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
 
-	"github.com/victoralagwu/learn-go/projects/rest-api/responses"
+	"github.com/victoralagwu/learn-go/projects/rest-api/api/responses"
 )
 
 //Home :

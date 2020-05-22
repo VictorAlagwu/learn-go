@@ -10,7 +10,7 @@ import (
 
 	_ "github.com/jinzhu/gorm/dialects/mysql" //mysql datatype driver
 
-	"github.com/victoralagwu/learn-go/projects/rest-api/models"
+	"github.com/victoralagwu/learn-go/projects/rest-api/api/models"
 )
 
 //Server :

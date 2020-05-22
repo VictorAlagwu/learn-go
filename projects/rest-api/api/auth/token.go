@@ -1,6 +1,15 @@
 package auth
 
 import (
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"strconv"
+	"strings"
+	"time"
+
 	jwt "github.com/dgrijalva/jwt-go"
 )
 
@@ -19,7 +28,7 @@ func CreateToken(userID uint32) (string, error) {
 func TokenValid(r *http.Request) error {
 	tokenString := ExtractToken(r)
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-		if _, ok := token.Method(*jwt.SigningMethodHMAC); !ok {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
 		}
 		return []byte(os.Getenv("API_SECRET")), nil
@@ -62,7 +71,7 @@ func ExtractTokenID(r *http.Request) (uint32, error) {
 	}
 	claims, ok := token.Claims.(jwt.MapClaims)
 	if ok && token.Valid {
-		uid, err := strconv.ParseUint(fmt.Sprintf("%.0f"), claims["user_id"]), 10, 32)
+		uid, err := strconv.ParseUint(fmt.Sprintf("%.0f", claims["user_id"]), 10, 32)
 		if err != nil {
 			return 0, err
 		}
@@ -71,10 +80,11 @@ func ExtractTokenID(r *http.Request) (uint32, error) {
 	return 0, nil
 }
 
+//Pretty :
 func Pretty(data interface{}) {
 	b, err := json.MarshalIndent(data, "", " ")
 	if err != nil {
-		log,Println(err)
+		log.Println(err)
 		return
 	}
 	fmt.Println(string(b))
