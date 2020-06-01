@@ -1,6 +1,6 @@
 package main
 import "fmt"
-import m "github.com/victoralagwu/learngo/chapter11/math"
+import m "github.com/victoralagwu/learn-go/chapter11/math"
 
 func main() {
 	xs := []float64{1,2,3,4}
