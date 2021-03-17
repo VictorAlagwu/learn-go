@@ -15,12 +15,12 @@ import (
 
 //Server :
 type Server struct {
-	DB	*gorm.DB
+	DB     *gorm.DB
 	Router *mux.Router
 }
 
 //Initialize :
-func (server *Server) Initialize(Dbdriver, DbUser, DbPassword, DbPort,DbHost, DbName string) {
+func (server *Server) Initialize(Dbdriver, DbUser, DbPassword, DbPort, DbHost, DbName string) {
 	var err error
 	if Dbdriver == "mysql" {
 		DBURL := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", DbUser, DbPassword, DbHost, DbPort, DbName)

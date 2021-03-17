@@ -43,8 +43,8 @@ func arrayChecker(a int, arr [4]int) bool{
 }
 
 func main() {
-	var s  int;
-	var v float64;
+	var s int
+	var v float64
 	xs := [4]int{1, 2, 3, 4}
 	fmt.Println("Hello, Welcome to the Terminal Converter")
 	fmt.Println(`
