@@ -1,7 +1,7 @@
 package main
 
 import (
-	c "structs/computer"
+	c "github.com/victoralagwu/learn-go/chapter9/problems/structs/computer"
 	"fmt"
 )
 

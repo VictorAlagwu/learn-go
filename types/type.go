@@ -1,4 +1,4 @@
-package main
+package type
 
 import (
 	"time"
@@ -8,7 +8,7 @@ import (
 type gram float64
 type ounce float64
 
-func main() {
+func test() {
 	var g gram = 1000
 	var o ounce 
 	o = ounce(g) * 0.0335274

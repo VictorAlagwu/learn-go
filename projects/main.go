@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"fmt"
-	"projects/simpleinterest"
+	_ "github.com/victoralagwu/learn-go/projects/simpleinterest"
 )
 
 var p, r , t = 5000.0, 10.0, 1.0
