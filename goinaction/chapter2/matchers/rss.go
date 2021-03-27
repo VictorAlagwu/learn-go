@@ -58,8 +58,7 @@ func init() {
 }
 
 
-func (m rssMatcher) Search(feed *search.Feed, searchTerm string) 
-([]*search.Result, error) {
+func (m rssMatcher) Search(feed *search.Feed, searchTerm string) ([]*search.Result, error) {
 	var results []*search.Result
 
 	log.Printf("Search feed Type [%s] Site[%s] For URI[%s]", feed.Type, feed.Name, feed.URI)
@@ -83,7 +82,7 @@ func (m rssMatcher) Search(feed *search.Feed, searchTerm string)
 			})
 		}
 
-		matched, err := regexp.MatchString(searchTerm, channelItem.Description)
+		matched, err = regexp.MatchString(searchTerm, channelItem.Description)
 
 		if err != nil {
 			return nil, err
@@ -95,9 +94,9 @@ func (m rssMatcher) Search(feed *search.Feed, searchTerm string)
 				Content: channelItem.Description,
 			})
 		}
-
-		return results, nil
 	}
+
+	return results, nil
 }
 
 func (m rssMatcher) retrieve(feed *search.Feed) (*rssDocument, error) {
