@@ -1,8 +1,10 @@
 package main
 
 import (
-	"log"
 	"fmt"
+	"log"
+
+	"github.com/victoralagwu/learn-go/projects/simpleinterest"
 	_ "github.com/victoralagwu/learn-go/projects/simpleinterest"
 )
 

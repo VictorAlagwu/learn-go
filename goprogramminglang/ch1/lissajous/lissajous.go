@@ -5,9 +5,11 @@ import (
 	"image/color"
 	"image/gif"
 	"io"
+	"log"
 	"math"
 	"math/rand"
-	"os"
+	"net/http"
+	"strconv"
 )
 
 var palette = []color.Color{color.White, color.Black, color.RGBA{0, 128, 0, 1}, color.RGBA{221, 74, 104, 1}}
@@ -20,12 +22,27 @@ const (
 )
 
 func main() {
-	lissajous(os.Stdout)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		lissajous(w, r)
+	})
+	log.Fatal(http.ListenAndServe("localhost:8439", nil))
 }
 
-func lissajous(out io.Writer) {
-	const (
+func lissajous(out io.Writer, r *http.Request) {
+	r.ParseForm()
+	_, hasParam := r.Form["cycles"]
+	var cycles float64;
+	if hasParam {
+		i, err := strconv.Atoi(r.FormValue("cycles"))
+		if err != nil {
+			cycles = 5
+		} else {
+			cycles = float64(i)
+		}
+	} else {
 		cycles = 5
+	}
+	const (
 		res = 0.001
 		size = 100
 		nframes = 64
